@@ -7,8 +7,8 @@ patches {
         description = "Patches for apps I like"
         source = "git@github.com:mich111discord/Mightymichs-Patches.git"
         author = "MightyMich"
-        contact = "na"
-        website = "mightymich.web1337.net/en/morphe-patches"
+        contact = "https://mightymich.web1337.net/discord?from=morphe-app"
+        website = "https://mightymich.web1337.net/en/morphe-patches"
         license = "GPLv3"
     }
 }
