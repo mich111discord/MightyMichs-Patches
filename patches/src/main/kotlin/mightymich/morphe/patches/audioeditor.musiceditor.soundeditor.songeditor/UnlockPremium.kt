@@ -14,7 +14,7 @@ val unlockPremiumPatch = bytecodePatch(
     // 1. Declare the patch compatibility with the target app.
     compatibleWith(AudioEditorCompatibility.AUDIO_EDITOR)
 
-    // 2. Fingerprint: locate the method that contains the string "purchase_buy__".
+    // 2. Fingerprint: locate the method that contains the string "purchase_buy__". 
     val purchaseCheckFingerprint = Fingerprint(
         strings = listOf("purchase_buy__")
     )
