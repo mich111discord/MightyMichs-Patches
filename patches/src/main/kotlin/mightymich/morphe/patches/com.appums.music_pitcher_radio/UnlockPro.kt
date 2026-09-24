@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
     name = "Unlock Pro Features",
-    description = "Forces 'proActivated' and 'subscriptionActivated' to true, unlocking Pro features in Music Pitcher Radio."
+    description = "Forces 'proActivated' and 'subscriptionActivated' to true, unlocking Pro features in Music Pitcher Radio. "
 ) {
     compatibleWith(MusicPitcherRadioCompatibility.MUSIC_PITCHER_RADIO)
 
