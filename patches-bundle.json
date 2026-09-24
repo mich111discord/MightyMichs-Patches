@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-24T18:30:46",
-  "description": "## [1.1.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.6...v1.1.0) (2026-09-24)\n\n### ✨ New Features\n\n* add unlock pro patch for Device Info (com.liuzh.deviceinfo) ([cc335f3](https://github.com/mich111discord/MightyMichs-Patches/commit/cc335f3d44b6a76831ae768b0a960459ca723991))",
-  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.1.0/patches-1.1.0.mpp",
+  "created_at": "2026-09-24T18:37:47",
+  "description": "## [1.2.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.1.0...v1.2.0) (2026-09-24)\n\n### ✨ New Features\n\n* add unlock pro patch for Device Info (com.liuzh.deviceinfo) ([2181eba](https://github.com/mich111discord/MightyMichs-Patches/commit/2181eba1f5bd483e21814496aedbc9c12ac1c1fc))",
+  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.2.0/patches-1.2.0.mpp",
   "signature_download_url": "",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

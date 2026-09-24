@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.1.0...v1.2.0) (2026-09-24)
+
+### ✨ New Features
+
+* add unlock pro patch for Device Info (com.liuzh.deviceinfo) ([2181eba](https://github.com/mich111discord/MightyMichs-Patches/commit/2181eba1f5bd483e21814496aedbc9c12ac1c1fc))
+
 ## [1.1.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.6...v1.1.0) (2026-09-24)
 
 ### ✨ New Features
