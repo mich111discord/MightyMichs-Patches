@@ -1,3 +1,13 @@
+## [1.3.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.2.1...v1.3.0) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* add unlock pro patch for Music Pitcher Radio (com.appums.music_pitcher_radio v1.43) ([975ec87](https://github.com/mich111discord/MightyMichs-Patches/commit/975ec87a47859e6cdd77279a08de6d7502f148a1))
+
+### ✨ New Features
+
+* add unlock pro patch for Music Pitcher Radio (com.appums.music_pitcher_radio v1.43) ([96b91ad](https://github.com/mich111discord/MightyMichs-Patches/commit/96b91ad88cb81087ebdcdf8dc3d6eaca38dfd00a))
+
 ## [1.2.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.2.0...v1.2.1) (2026-09-24)
 
 ### 🐛 Bug Fixes
