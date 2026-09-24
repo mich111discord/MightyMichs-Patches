@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "patches": [
     {
       "name": "Example Patch",
@@ -55,6 +55,33 @@
           "targets": [
             {
               "version": "2.01.64.0916",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Pro Features",
+      "description": "Forces the 'is_pro_user' check to always return true, unlocking Pro features in Device Info.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.liuzh.deviceinfo",
+          "name": "Device Info",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#2196F3",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "3.2.3.0",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
