@@ -3,7 +3,7 @@ group = "app.template"
 patches {
     // TODO: Update this section with your project details.
     about {
-        name = MightyMich's Patches"
+        name = "MightyMich's Patches"
         description = "Patches for apps I like"
         source = "git@github.com:mich111discord/Mightymichs-Patches.git"
         author = "MightyMich"
