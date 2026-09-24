@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.2...v1.0.3) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* correct instruction insertion logic for unlock premium patch ([3c6d2d6](https://github.com/mich111discord/MightyMichs-Patches/commit/3c6d2d665b6d6884e9f8c194e3064f8938a4d890))
+* remove invalid methodCall filter and target move-result register ([385b648](https://github.com/mich111discord/MightyMichs-Patches/commit/385b648160cf218b07291c5c33fc647b6b57d758))
+
 ## [1.0.2](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.1...v1.0.2) (2026-09-24)
 
 ### 🐛 Bug Fixes
