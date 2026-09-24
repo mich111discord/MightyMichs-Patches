@@ -85,5 +85,4 @@ To develop and release your Patches using this template:
 See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation) for more information.
 
 ## 📜 License
-
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+MightyMich (mich1112) Patches are licensed under the [GNU General Public License v3.0](LICENSE)
