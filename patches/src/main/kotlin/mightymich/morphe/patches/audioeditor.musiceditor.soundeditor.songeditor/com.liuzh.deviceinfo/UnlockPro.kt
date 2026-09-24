@@ -17,7 +17,7 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith(DevInfoCompatibility.DEVINFO)
 
-    // 1. Fingerprint: locate the method that contains the string "is_pro_user".
+    // 1. Fingerprint: locate the method that contains the string "is_pro_user". 
     val isProUserFingerprint = Fingerprint(
         filters = listOf(
             string("is_pro_user")
