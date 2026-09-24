@@ -5,7 +5,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.morphe.patcher.methodCall
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
@@ -14,34 +14,50 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith(AudioEditorCompatibility.AUDIO_EDITOR)
 
-    // 1. Define the fingerprint using an explicit instruction filter.
+    // 1. Fingerprint: match a method that contains the string "purchase_buy__"
+    //    and calls getBoolean.
     val purchaseCheckFingerprint = Fingerprint(
         filters = listOf(
-            string("purchase_buy__")
+            string("purchase_buy__"),
+            methodCall("getBoolean")
         )
     )
 
     execute {
         purchaseCheckFingerprint.let { fingerprint ->
             val method = fingerprint.method
+            val implementation = method.implementation
+                ?: throw PatchException("Method has no implementation.")
 
-            // 2. Find the instruction that loads the "purchase_buy__" string.
-            val stringInstructionMatch = fingerprint.instructionMatches
-                .firstOrNull { it.instruction.opcode.name == "CONST_STRING" }
-                ?: throw PatchException(
-                    "Could not find the CONST_STRING instruction in the target method."
-                )
+            val instructions = implementation.instructions.toList()
 
-            // 3. Get the register that holds the string.
-            val register = stringInstructionMatch
-                .getInstruction<OneRegisterInstruction>()
-                .registerA
+            // 2. Find the "move-result" instruction that follows getBoolean.
+            var moveResultIndex = -1
 
-            // 4. Insert "const/4 vX, 0x1" right after the string is loaded.
+            for (i in instructions.indices) {
+                val instruction = instructions[i]
+                if (instruction.opcode.name == "MOVE_RESULT" || instruction.opcode.name == "MOVE_RESULT_OBJECT") {
+                    // Check if the previous instruction is a call to getBoolean.
+                    if (i > 0) {
+                        val prev = instructions[i - 1]
+                        if (prev.toString().contains("getBoolean")) {
+                            moveResultIndex = i
+                            break
+                        }
+                    }
+                }
+            }
+
+            if (moveResultIndex == -1) {
+                throw PatchException("Could not find the getBoolean/move-result sequence in the method.")
+            }
+
+            // 3. Insert "const/4 p0, 0x1" right after move-result p0.
+            //    This overwrites the result of getBoolean with true (1).
             method.addInstructions(
-                stringInstructionMatch.index + 1,
+                moveResultIndex + 1,
                 """
-                    const/4 v$register, 0x1
+                    const/4 p0, 0x1
                 """
             )
         }
