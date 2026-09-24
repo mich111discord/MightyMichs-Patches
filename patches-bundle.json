@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-24T17:38:31",
-  "description": "## [1.0.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.0...v1.0.1) (2026-09-24)\n\n### 🐛 Bug Fixes\n\n* unlock premium patch now correctly targets purchase check method ([bb98e16](https://github.com/mich111discord/MightyMichs-Patches/commit/bb98e16c800b4f171c7f283fc638b917bdc0394c))",
-  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.0.1/patches-1.0.1.mpp",
+  "created_at": "2026-09-24T17:49:01",
+  "description": "## [1.0.2](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.1...v1.0.2) (2026-09-24)\n\n### 🐛 Bug Fixes\n\n* declare Audio Editor compatibility for unlock premium patch ([52254ca](https://github.com/mich111discord/MightyMichs-Patches/commit/52254ca0b8aa6565e01a97d14e7aa54d7ef8fd10))",
+  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.0.2/patches-1.0.2.mpp",
   "signature_download_url": "",
-  "version": "1.0.1"
+  "version": "1.0.2"
 }

@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.1...v1.0.2) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* declare Audio Editor compatibility for unlock premium patch ([52254ca](https://github.com/mich111discord/MightyMichs-Patches/commit/52254ca0b8aa6565e01a97d14e7aa54d7ef8fd10))
+
 ## [1.0.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.0...v1.0.1) (2026-09-24)
 
 ### 🐛 Bug Fixes
