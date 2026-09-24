@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.3...v1.0.4) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* get bootlean method fixed. ([9ea8e42](https://github.com/mich111discord/MightyMichs-Patches/commit/9ea8e42a79027eb6c21091fab46edd05a4ae4dc3))
+
 ## [1.0.3](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.0.2...v1.0.3) (2026-09-24)
 
 ### 🐛 Bug Fixes
