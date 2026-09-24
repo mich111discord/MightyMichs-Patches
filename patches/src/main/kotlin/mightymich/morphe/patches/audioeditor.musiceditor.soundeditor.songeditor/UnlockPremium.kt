@@ -25,20 +25,25 @@ val unlockPremiumPatch = bytecodePatch(
     execute {
         // 2. Use the official Morphe pattern to access the match and its instructions.
         purchaseCheckFingerprint.let { fingerprint ->
+            // 'fingerprint.method' is non-nullable in this version of Morphe,
+            // so the elvis operator (?:) is unnecessary here.
             val method = fingerprint.method
-                ?: throw PatchException("Could not find the purchase check method containing 'purchase_buy__'.")
 
             // 3. Find the instruction that loads the "purchase_buy__" string.
-            //    In the smali you showed, this is the CONST_STRING instruction.
+            //    In the smali shown earlier, this is a CONST_STRING instruction.
             val stringInstructionMatch = fingerprint.instructionMatches
                 .firstOrNull { it.instruction.opcode.name == "CONST_STRING" }
-                ?: throw PatchException("Could not find the CONST_STRING instruction in the target method.")
+                ?: throw PatchException(
+                    "Could not find the CONST_STRING instruction in the target method."
+                )
 
             // 4. Get the register that holds the string.
-            val register = stringInstructionMatch.getInstruction<OneRegisterInstruction>().registerA
+            val register = stringInstructionMatch
+                .getInstruction<OneRegisterInstruction>()
+                .registerA
 
             // 5. Insert "const/4 vX, 0x1" right after the string is loaded.
-            //    This forces the boolean check to always use 'true'.
+            //    This forces the subsequent boolean check to always evaluate to true.
             method.addInstructions(
                 stringInstructionMatch.index + 1,
                 """
