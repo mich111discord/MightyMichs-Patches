@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.2.0...v1.2.1) (2026-09-24)
+
+### 🐛 Bug Fixes
+
+* patch error fixed ([80da856](https://github.com/mich111discord/MightyMichs-Patches/commit/80da85650694d05d33e0cbe94fa5e50bf55a3652))
+
 ## [1.2.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.1.0...v1.2.0) (2026-09-24)
 
 ### ✨ New Features
