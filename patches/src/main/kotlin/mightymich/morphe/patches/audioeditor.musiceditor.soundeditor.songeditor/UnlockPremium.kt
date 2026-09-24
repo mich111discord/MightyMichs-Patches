@@ -17,7 +17,7 @@ val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
     description = "Forces the purchase verification method to always return true, unlocking premium features in Audio Editor."
 ) {
-    // 1. Fingerprint: locate the method that contains the string "purchase_buy__".
+    // 1. Fingerprint: locate the method that contains the string "purchase_buy__". 
     val purchaseCheckFingerprint = Fingerprint(
         strings = listOf("purchase_buy__")
     )
