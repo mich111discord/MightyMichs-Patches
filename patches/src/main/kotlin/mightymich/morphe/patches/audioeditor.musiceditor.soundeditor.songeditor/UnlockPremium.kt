@@ -1,23 +1,23 @@
 package mightymich.morphe.patches.audioeditor.musiceditor.soundeditor.songeditor
 
+import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.util.MethodFingerprint
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "unlocking premium features in Audio Editor.",
-    use = true
+    description = "Forces the purchase verification method to always return true, unlocking premium features in Audio Editor."
 ) {
     // Fingerprint based on the string visible in the video/screenshot
-    val purchaseCheckFingerprint = MethodFingerprint(
+    val purchaseCheckFingerprint = Fingerprint(
         returnType = "Z", // "Z" means boolean
         strings = listOf("purchase_buy__")
     )
 
     execute {
+        // Find the method using the fingerprint
         val method = purchaseCheckFingerprint.result?.mutableMethod
             ?: throw PatchException(
                 "Could not find the purchase check method containing 'purchase_buy__'."
