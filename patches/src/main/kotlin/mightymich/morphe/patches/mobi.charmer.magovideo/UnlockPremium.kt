@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks premium features in MagoVideo by forcing the premium check to return true."
+    description = "Unlocks premium features in MagoVideo by forcing the premium check to return true. "
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
