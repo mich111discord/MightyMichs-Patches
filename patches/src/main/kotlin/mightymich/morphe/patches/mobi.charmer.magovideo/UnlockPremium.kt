@@ -4,39 +4,36 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.string
+import app.morphe.patcher.methodCall
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks premium features in MagoVideo by forcing the purchase flag to true."
+    description = "Unlocks premium features in MagoVideo by forcing the premium check method to return true."
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
-    // 1. Fingerprint: locate the method that contains the string "onetime_purchase".
-    //    This method is responsible for initializing the purchase state.
-    val purchaseInitFingerprint = Fingerprint(
+    // 1. Fingerprint: locate the private method h0(String, String)Z,
+    //    which is responsible for the actual premium check.
+    val h0Fingerprint = Fingerprint(
         filters = listOf(
-            string("onetime_purchase")
+            methodCall(smali = "Lf2/l;->h0(Ljava/lang/String;Ljava/lang/String;)Z")
         )
     )
 
     execute {
-        purchaseInitFingerprint.let { fingerprint ->
+        h0Fingerprint.let { fingerprint ->
             val method = fingerprint.method
-            val implementation = method.implementation
-                ?: throw PatchException("Method has no implementation.")
 
-            // 2. Find the end of the method to append our instructions.
-            val endIndex = implementation.instructions.size
-
-            // 3. Append instructions that force the premium flag to true.
-            //    We use v0 as a scratch register (it is safe to use at the end of a void method).
+            // 2. Insert instructions at the very beginning of the method:
+            //      const/4 v0, 0x1  -> load 1 (true) into register v0
+            //      return v0        -> return true immediately
+            //    This forces the premium check to always succeed.
             method.addInstructions(
-                endIndex,
+                0,
                 """
                     const/4 v0, 0x1
-                    sput-boolean v0, Lf2/l;->Z:Z
+                    return v0
                 """
             )
         }
