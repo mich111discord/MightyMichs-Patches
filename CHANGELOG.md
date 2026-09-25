@@ -1,3 +1,9 @@
+## [1.4.7](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.6...v1.4.7) (2026-09-25)
+
+### 🐛 Bug Fixes
+
+* Mago video patch fix ([0bfb653](https://github.com/mich111discord/MightyMichs-Patches/commit/0bfb653df742e7311659507844501a8b9d865b0c))
+
 ## [1.4.6](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.5...v1.4.6) (2026-09-25)
 
 ### 🐛 Bug Fixes
