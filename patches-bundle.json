@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-25T15:10:28",
-  "description": "## [1.4.4](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.3...v1.4.4) (2026-09-25)\n\n### 🐛 Bug Fixes\n\n* MagoVideo test fix :) ([7434417](https://github.com/mich111discord/MightyMichs-Patches/commit/7434417b4958e4aa200e40411f61dc399e7b39f3))",
-  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.4.4/patches-1.4.4.mpp",
+  "created_at": "2026-09-25T15:16:39",
+  "description": "## [1.4.5](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.4...v1.4.5) (2026-09-25)\n\n### 🐛 Bug Fixes\n\n* . ([3e184f7](https://github.com/mich111discord/MightyMichs-Patches/commit/3e184f732fd7c73f77710b0d67b7f8bbf6a086bf))",
+  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.4.5/patches-1.4.5.mpp",
   "signature_download_url": "",
-  "version": "1.4.4"
+  "version": "1.4.5"
 }
