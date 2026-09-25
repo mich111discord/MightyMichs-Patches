@@ -3,7 +3,8 @@ package mightymich.morphe.patches.magovideo
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.morphe.patcher.fieldAccess
+import com.android.tools.smali.dexlib2.Opcode
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
@@ -12,17 +13,22 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
-    // 1. Fingerprint: locate the method h0(String, String)Z inside class Lf2/l;.
-    //    We use the standard Fingerprint parameters: definingClass, returnType, parameters, and accessFlags.
-    val h0Fingerprint = Fingerprint(
-        definingClass = "Lf2/l;",
-        accessFlags = listOf(AccessFlags.PRIVATE),
+    // 1. Fingerprint: locate any method that reads the static boolean field Z in class Lf2/l;.
+    //    This method is responsible for checking the premium status.
+    val premiumCheckFingerprint = Fingerprint(
         returnType = "Z",
-        parameters = listOf("Ljava/lang/String;", "Ljava/lang/String;")
+        filters = listOf(
+            fieldAccess(
+                opcode = Opcode.SGET_BOOLEAN,
+                definingClass = "Lf2/l;",
+                name = "Z",
+                type = "Z"
+            )
+        )
     )
 
     execute {
-        h0Fingerprint.let { fingerprint ->
+        premiumCheckFingerprint.let { fingerprint ->
             val method = fingerprint.method
 
             // 2. Insert instructions at the very beginning of the method:
