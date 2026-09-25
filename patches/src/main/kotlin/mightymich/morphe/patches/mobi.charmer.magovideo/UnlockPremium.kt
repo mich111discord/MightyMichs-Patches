@@ -2,44 +2,58 @@ package mightymich.morphe.patches.magovideo
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.string
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks premium features in MagoVideo by forcing the premium check method to return true."
+    description = "Unlocks premium features in MagoVideo by forcing the premium flag to true."
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
-    // 1. Class fingerprint: locate the class that contains the string "onetime_purchase".
-    //    This is more stable because strings change less often than method names.
-    val classFingerprint = Fingerprint(
-        filters = listOf(
-            string("onetime_purchase")
-        )
-    )
-
-    // 2. Method fingerprint: within the found class, search for a method that returns boolean (Z).
-    //    This is most likely the method that checks the premium status.
-    val methodFingerprint = Fingerprint(
-        returnType = "Z",
-        classFingerprint = classFingerprint // Restrict the search to the class found above.
+    // 1. Fingerprint: locate the constructor of class Lf2/l;.
+    val constructorFingerprint = Fingerprint(
+        definingClass = "Lf2/l;",
+        name = "<init>",
+        returnType = "V"
     )
 
     execute {
-        methodFingerprint.let { fingerprint ->
+        constructorFingerprint.let { fingerprint ->
             val method = fingerprint.method
+            val instructions = method.implementation!!.instructions.toList()
 
-            // 3. Insert instructions at the very beginning of the method:
-            //      const/4 v0, 0x1  -> load 1 (true) into register v0
-            //      return v0        -> return true immediately
-            //    This forces the method to always return true, regardless of the original logic.
+            // 2. Find the instruction const/4 vX, 0x0 (initializes the premium flag to false).
+            var const4Index = -1
+            for (i in instructions.indices) {
+                val instruction = instructions[i]
+                if (instruction.opcode.name == "CONST_4" &&
+                    instruction is NarrowLiteralInstruction &&
+                    instruction.narrowLiteral == 0
+                ) {
+                    const4Index = i
+                    break
+                }
+            }
+
+            if (const4Index == -1) {
+                throw PatchException("Could not find const/4 with value 0 in constructor.")
+            }
+
+            // 3. Get the register used by that const/4 instruction.
+            val const4Instruction = instructions[const4Index] as OneRegisterInstruction
+            val register = const4Instruction.registerA
+
+            // 4. Insert instructions right after the const/4 to force the premium flag to true.
+            //    This sets the static field Z in class Lf2/l; to true.
             method.addInstructions(
-                0,
+                const4Index + 1,
                 """
-                    const/4 v0, 0x1
-                    return v0
+                    const/4 v$register, 0x1
+                    sput-boolean v$register, Lf2/l;->Z:Z
                 """
             )
         }
