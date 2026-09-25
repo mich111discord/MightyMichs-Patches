@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.3.0...v1.4.0) (2026-09-25)
+
+### ✨ New Features
+
+* add unlock premium patch for MagoVideo (mobi.charmer.magovideo v5.7.1) ([532af2b](https://github.com/mich111discord/MightyMichs-Patches/commit/532af2bca00b77ef794007cfa757795ae27f73a6))
+
 ## [1.3.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.2.1...v1.3.0) (2026-09-24)
 
 ### 🐛 Bug Fixes
