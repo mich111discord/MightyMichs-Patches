@@ -7,7 +7,7 @@ import app.morphe.patcher.patch.bytecodePatch
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks premium features in MagoVideo by forcing the premium check method to return true."
+    description = "Unlocks premium features in MagoVideo by forcing the premium check method to return true. "
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
