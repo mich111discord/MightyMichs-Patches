@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.0...v1.4.1) (2026-09-25)
+
+### 🐛 Bug Fixes
+
+* Magovideo fingerprint fix ([8560ae8](https://github.com/mich111discord/MightyMichs-Patches/commit/8560ae841704134512bd408a91326681dfde7d87))
+* remove duplicate code from MagoVideo unlock patch ([7cb2044](https://github.com/mich111discord/MightyMichs-Patches/commit/7cb204476efa103937b3ff6f199f7427e51a3139))
+
 ## [1.4.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.3.0...v1.4.0) (2026-09-25)
 
 ### ✨ New Features
