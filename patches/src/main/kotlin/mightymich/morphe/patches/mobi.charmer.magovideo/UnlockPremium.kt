@@ -2,9 +2,7 @@ package mightymich.morphe.patches.magovideo
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.methodCall
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
@@ -13,12 +11,14 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
-    // 1. Fingerprint: locate the private method h0(String, String)Z,
-    //    which is responsible for the actual premium check.
+    // 1. Fingerprint: locate the method h0(String, String)Z inside class Lf2/l;.
+    //    We use customFingerprint to check both the class type and the method name.
     val h0Fingerprint = Fingerprint(
-        filters = listOf(
-            methodCall(smali = "Lf2/l;->h0(Ljava/lang/String;Ljava/lang/String;)Z")
-        )
+        returnType = "Z",
+        parameters = listOf("Ljava/lang/String;", "Ljava/lang/String;"),
+        customFingerprint = { methodDef, classDef ->
+            methodDef.name == "h0" && classDef.type == "Lf2/l;"
+        }
     )
 
     execute {
