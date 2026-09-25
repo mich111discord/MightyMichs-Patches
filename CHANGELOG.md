@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.1...v1.4.2) (2026-09-25)
+
+### 🐛 Bug Fixes
+
+* Magovideo Premium patch ([db52220](https://github.com/mich111discord/MightyMichs-Patches/commit/db52220dbc15b8b34824a20404ce275c6a96eded))
+
 ## [1.4.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.0...v1.4.1) (2026-09-25)
 
 ### 🐛 Bug Fixes
