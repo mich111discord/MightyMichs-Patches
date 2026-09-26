@@ -11,7 +11,7 @@ object VideoGuruCompatibility {
         apkFileType = ApkFileType.APK,
         appIconColor = 0xFF9800, // Orange color, typical for video editing apps.
         targets = listOf(
-            AppTarget(version = "1.371.93")
+            AppTarget(version = "1.371.93"),
             AppTarget(version = "1.621.196") // Tested version.
         )
     )
