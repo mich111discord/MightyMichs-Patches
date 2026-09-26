@@ -9,10 +9,10 @@ object VideoGuruCompatibility {
         name = "Video Guru",
         packageName = "videoeditor.videomaker.videoeditorforyoutube",
         apkFileType = ApkFileType.APK,
-        appIconColor = 0xFF9800, // Orange color, typical for video editing apps.
+        appIconColor = 0xFF9800,
         targets = listOf(
             AppTarget(version = "1.371.93"),
-            AppTarget(version = "1.621.196") // Tested version.
+            AppTarget(version = "1.621.196")
         )
     )
 }
