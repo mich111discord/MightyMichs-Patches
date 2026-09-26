@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.0...v1.5.1) (2026-09-26)
+
+### 🐛 Bug Fixes
+
+* :) ([73bb1ec](https://github.com/mich111discord/MightyMichs-Patches/commit/73bb1ecaff041e0691336f93ee4c129c4c1a4120))
+* fingerprint ([6b233b5](https://github.com/mich111discord/MightyMichs-Patches/commit/6b233b578a1b198b1777b418ca5e3d40527c7f11))
+
 ## [1.5.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.4.9...v1.5.0) (2026-09-26)
 
 ### 🐛 Bug Fixes
