@@ -7,7 +7,7 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import app.morphe.patcher.patch.AppTarget
+
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
     name = "Unlock Pro Features",
