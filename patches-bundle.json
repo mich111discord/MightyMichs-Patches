@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-26T18:03:30",
-  "description": "## [1.5.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.0...v1.5.1) (2026-09-26)\n\n### 🐛 Bug Fixes\n\n* :) ([73bb1ec](https://github.com/mich111discord/MightyMichs-Patches/commit/73bb1ecaff041e0691336f93ee4c129c4c1a4120))\n* fingerprint ([6b233b5](https://github.com/mich111discord/MightyMichs-Patches/commit/6b233b578a1b198b1777b418ca5e3d40527c7f11))",
-  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.5.1/patches-1.5.1.mpp",
+  "created_at": "2026-09-26T18:11:15",
+  "description": "## [1.5.2](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.1...v1.5.2) (2026-09-26)\n\n### 🐛 Bug Fixes\n\n* ... ([60ea08b](https://github.com/mich111discord/MightyMichs-Patches/commit/60ea08b1e6e82b15d288c054a52f4e7668e1da0c))",
+  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.5.2/patches-1.5.2.mpp",
   "signature_download_url": "",
-  "version": "1.5.1"
+  "version": "1.5.2"
 }
