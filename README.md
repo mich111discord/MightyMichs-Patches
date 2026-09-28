@@ -13,7 +13,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.5.5](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.5.5)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;5 patches total
+> **[v1.5.6](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.5.6)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;5 patches total
 <details open>
 <summary>📦 Audio Editor&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -85,7 +85,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Unlock Pro Features](#unlock-pro-features) | Unlocks Pro features in Video Guru. |  |
+| [Unlock Pro Features](#unlock-pro-features) | Unlocks Pro features in Video Guru by forcing the premium check method a()Z to return true. |  |
 
 </details>
 
