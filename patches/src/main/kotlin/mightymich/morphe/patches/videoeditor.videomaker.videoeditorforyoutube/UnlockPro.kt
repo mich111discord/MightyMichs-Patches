@@ -1,10 +1,13 @@
 package mightymich.morphe.patches.videoguru
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.string
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -14,7 +17,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith(VideoGuruCompatibility.VIDEO_GURU)
 
     // 1. Fingerprint: locate the method that contains the string "SubscribePro".
-    //    This method (a()Z) is responsible for checking the subscription status.
+    //    This method checks the subscription status.
     val subscribeProFingerprint = Fingerprint(
         filters = listOf(
             string("SubscribePro")
@@ -23,20 +26,47 @@ val unlockProPatch = bytecodePatch(
 
     execute {
         subscribeProFingerprint.let { fingerprint ->
-            // 2. Get the matched method. In Morphe Patcher, 'match' is a function.
-            val method = fingerprint.match()?.method
-                ?: throw PatchException("Could not find the method with 'SubscribePro' string.")
+            val method = fingerprint.method
+            val instructions = method.implementation?.instructions?.toList()
+                ?: throw PatchException("Method has no implementation.")
 
-            // 3. Insert instructions at the very beginning of the method:
-            //      const/4 v0, 0x1  -> load 1 (true) into register v0
-            //      return v0        -> return true immediately
-            //    This forces the premium check to always succeed.
-            method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
+            // 2. Find the invoke instruction that calls getBoolean for SubscribePro.
+            //    We look for a call to SharedPreferences.getBoolean followed by move-result.
+            var targetIndex = -1
+            var targetRegister = -1
+
+            for (i in instructions.indices) {
+                val instruction = instructions[i]
+                if (instruction is ReferenceInstruction) {
+                    val ref = instruction.reference
+                    if (ref is MethodReference &&
+                        ref.name == "getBoolean" &&
+                        ref.definingClass == "Landroid/content/SharedPreferences;"
+                    ) {
+                        // 3. The move-result instruction follows immediately after invoke.
+                        if (i + 1 < instructions.size) {
+                            val next = instructions[i + 1]
+                            if (next.opcode.name == "MOVE_RESULT" &&
+                                next is OneRegisterInstruction
+                            ) {
+                                targetIndex = i + 1
+                                targetRegister = next.registerA
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (targetIndex == -1 || targetRegister == -1) {
+                throw PatchException("Could not find getBoolean/move-result for SubscribePro.")
+            }
+
+            // 4. Replace move-result with const/4 vX, 0x1 (true).
+            //    This forces the premium flag to always be true.
+            method.replaceInstruction(
+                targetIndex,
+                "const/4 v$targetRegister, 0x1"
             )
         }
     }
