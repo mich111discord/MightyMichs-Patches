@@ -8,9 +8,11 @@ import app.morphe.patcher.patch.bytecodePatch
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
     name = "Unlock Pro Features",
-    description = "Unlocks Pro features in Video Guru."
+    description = "Unlocks Pro features in Video Guru by forcing the premium check method a()Z to return true."
 ) {
     compatibleWith(VideoGuruCompatibility.VIDEO_GURU)
+
+
     val aFingerprint = Fingerprint(
         name = "a",
         returnType = "Z",
