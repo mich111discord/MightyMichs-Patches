@@ -1,3 +1,9 @@
+## [1.5.5](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.4...v1.5.5) (2026-09-28)
+
+### 🐛 Bug Fixes
+
+* another fix :( ([68587db](https://github.com/mich111discord/MightyMichs-Patches/commit/68587dbe881e4ce905dfb339d8b8b497ba838247))
+
 ## [1.5.4](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.3...v1.5.4) (2026-09-28)
 
 ### 🐛 Bug Fixes
