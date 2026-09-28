@@ -1,3 +1,11 @@
+## [1.5.4](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.3...v1.5.4) (2026-09-28)
+
+### 🐛 Bug Fixes
+
+* another try ([76da489](https://github.com/mich111discord/MightyMichs-Patches/commit/76da48935ec55eba2677f2c063b6eecf2e26c032))
+* Another try to fix the patch for Video Guru :) ([46f64c3](https://github.com/mich111discord/MightyMichs-Patches/commit/46f64c38f7a367fb2a7513c4c613150efbe26f3b))
+* new method for VideoGuru ([00128b6](https://github.com/mich111discord/MightyMichs-Patches/commit/00128b654d4299e137f0484dcdf2b06532abe5b6))
+
 ## [1.5.3](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.2...v1.5.3) (2026-09-26)
 
 ### 🐛 Bug Fixes
