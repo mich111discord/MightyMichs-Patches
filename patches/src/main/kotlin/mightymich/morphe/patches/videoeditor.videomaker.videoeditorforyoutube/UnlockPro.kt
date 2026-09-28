@@ -12,8 +12,6 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith(VideoGuruCompatibility.VIDEO_GURU)
 
-    // 1. Fingerprint: locate method a()Z with no parameters, returning boolean.
-    //    According to the 52pojie tutorial, this is the method that checks subscription.
     val aFingerprint = Fingerprint(
         name = "a",
         returnType = "Z",
