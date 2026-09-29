@@ -7,22 +7,22 @@ import app.morphe.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium Features",
-    description = "Unlocks ReelShort premium by forcing the vipStatus method to return true.",
+    name = "Unlock Premium Features (Experimental)",
+    description = "Unlocks ReelShort premium by forcing the vipStatus field to be true. WARNING: May cause crashes.",
     default = true
 ) {
     compatibleWith(ReelShortCompatibility.REELSHORT)
 
 
-    val vipStatusFingerprint = Fingerprint(
-        name = "vipStatus",
+    val getVipStatusFingerprint = Fingerprint(
+        definingClass = "Lcom/newleaf/app/android/victor/profile/setting/deleteaccount/v2/DeleteAccountPageStatus;",
+        name = "getVipStatus",
         returnType = "I"
     )
 
     execute {
-        vipStatusFingerprint.let { fingerprint ->
+        getVipStatusFingerprint.let { fingerprint ->
             val method = fingerprint.method
-
 
             method.addInstructions(
                 0,
