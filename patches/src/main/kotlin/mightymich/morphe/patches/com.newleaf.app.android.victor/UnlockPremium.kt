@@ -13,25 +13,26 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith(ReelShortCompatibility.REELSHORT)
 
-    // 1. Fingerprint for getVip() – returns boolean or int.
+    // 1. Fingerprint for getVip() – returns int (I), not boolean.
     val getVipFingerprint = Fingerprint(
         name = "getVip",
-        returnType = "Z" // boolean; if it fails, try "I".
+        returnType = "I"
     )
 
-
+    // 2. Fingerprint for getExecVipFeatures() – returns int.
     val getExecVipFeaturesFingerprint = Fingerprint(
         name = "getExecVipFeatures",
         returnType = "I"
     )
 
+    // 3. Fingerprint for getVipStatus() – returns int.
     val getVipStatusFingerprint = Fingerprint(
         name = "getVipStatus",
         returnType = "I"
     )
 
     execute {
-
+        // Patch getVip -> return 0x1.
         getVipFingerprint.let { fingerprint ->
             val method = fingerprint.method
                 ?: throw PatchException("Could not find getVip method.")
@@ -44,7 +45,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
-
+        // Patch getExecVipFeatures -> return 0x2.
         getExecVipFeaturesFingerprint.let { fingerprint ->
             val method = fingerprint.method
                 ?: throw PatchException("Could not find getExecVipFeatures method.")
@@ -57,7 +58,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
-       
+        // Patch getVipStatus -> return 0x1 (or 0x8 if 0x1 does not work).
         getVipStatusFingerprint.let { fingerprint ->
             val method = fingerprint.method
                 ?: throw PatchException("Could not find getVipStatus method.")
