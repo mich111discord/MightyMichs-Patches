@@ -8,17 +8,21 @@ import app.morphe.patcher.patch.bytecodePatch
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks ReelShort premium by forcing the vipStatus method to return true. WARNING: May cause crashes.",
+    description = "Unlocks ReelShort premium by forcing the vipStatus method to return true.",
     default = true
+) {
     compatibleWith(ReelShortCompatibility.REELSHORT)
+
+
     val vipStatusFingerprint = Fingerprint(
         name = "vipStatus",
-        returnType = "I" // It returns an integer status code.
+        returnType = "I"
     )
 
     execute {
         vipStatusFingerprint.let { fingerprint ->
             val method = fingerprint.method
+
 
             method.addInstructions(
                 0,
