@@ -12,7 +12,10 @@ object VideoGuruCompatibility {
         appIconColor = 0xFF9800,
         targets = listOf(
             AppTarget(version = "1.371.93"),
-            AppTarget(version = "1.621.196")
+            AppTarget(
+                version = "1.621.196",
+                isExperimental = true // Experimental – patch may cause crashes.
+            )
         )
     )
 }
