@@ -1,3 +1,12 @@
+## [1.5.7](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.6...v1.5.7) (2026-09-29)
+
+### 🐛 Bug Fixes
+
+* .. ([88f0eea](https://github.com/mich111discord/MightyMichs-Patches/commit/88f0eeadc156c8f62aa674c82f4419f8445b2968))
+* Added experimental label to som patches. ([0abc6f6](https://github.com/mich111discord/MightyMichs-Patches/commit/0abc6f6a3ad5d571ae37e5260bf9e32f95ad93e1))
+* Added experimental warning to Video.Guru ([b665c4f](https://github.com/mich111discord/MightyMichs-Patches/commit/b665c4f3ff6d22e42202a556805aec2ca0002829))
+* Marked as experimental (MagoVideo) [skip release] ([d80645b](https://github.com/mich111discord/MightyMichs-Patches/commit/d80645b8e547f5a881416199cefba0b3bb55550a))
+
 ## [1.5.6](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.5...v1.5.6) (2026-09-28)
 
 ### 🐛 Bug Fixes
