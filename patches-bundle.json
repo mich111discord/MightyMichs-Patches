@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-29T16:48:12",
-  "description": "## [1.6.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.7...v1.6.0) (2026-09-29)\n\n### ✨ New Features\n\n* add experimental unlock premium patch for ReelShort ([61cdbf7](https://github.com/mich111discord/MightyMichs-Patches/commit/61cdbf77e60b1781325283faf5a53417b2271864))\n* add experimental unlock premium patch for ReelShort ([92f472a](https://github.com/mich111discord/MightyMichs-Patches/commit/92f472a659bd3d19f70f1927481b8c5fef4f8522))",
-  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.6.0/patches-1.6.0.mpp",
+  "created_at": "2026-09-29T16:58:32",
+  "description": "## [1.6.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.6.0...v1.6.1) (2026-09-29)\n\n### 🐛 Bug Fixes\n\n* another try... ([b1f3c20](https://github.com/mich111discord/MightyMichs-Patches/commit/b1f3c201c57d8a382433c6d471be9cb82a591d2c))",
+  "download_url": "https://github.com/mich111discord/MightyMichs-Patches/releases/download/v1.6.1/patches-1.6.1.mpp",
   "signature_download_url": "",
-  "version": "1.6.0"
+  "version": "1.6.1"
 }

@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.6.0...v1.6.1) (2026-09-29)
+
+### 🐛 Bug Fixes
+
+* another try... ([b1f3c20](https://github.com/mich111discord/MightyMichs-Patches/commit/b1f3c201c57d8a382433c6d471be9cb82a591d2c))
+
 ## [1.6.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.7...v1.6.0) (2026-09-29)
 
 ### ✨ New Features

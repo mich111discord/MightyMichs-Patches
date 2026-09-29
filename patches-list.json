@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "patches": [
     {
       "name": "Unlock Premium Features",
@@ -57,8 +57,8 @@
       "options": []
     },
     {
-      "name": "Unlock Premium Features",
-      "description": "Unlocks ReelShort premium by forcing the vipStatus method to return true.",
+      "name": "Unlock Premium Features (Experimental)",
+      "description": "Unlocks ReelShort premium by forcing the vipStatus field to be true. WARNING: May cause crashes.",
       "default": true,
       "category": null,
       "dependencies": [],
