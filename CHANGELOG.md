@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.7...v1.6.0) (2026-09-29)
+
+### ✨ New Features
+
+* add experimental unlock premium patch for ReelShort ([61cdbf7](https://github.com/mich111discord/MightyMichs-Patches/commit/61cdbf77e60b1781325283faf5a53417b2271864))
+* add experimental unlock premium patch for ReelShort ([92f472a](https://github.com/mich111discord/MightyMichs-Patches/commit/92f472a659bd3d19f70f1927481b8c5fef4f8522))
+
 ## [1.5.7](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.5.6...v1.5.7) (2026-09-29)
 
 ### 🐛 Bug Fixes
