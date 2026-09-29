@@ -14,6 +14,7 @@ object VideoGuruCompatibility {
             AppTarget(
                 version = "1.371.93",
                 isExperimental = true // Experimental – patch may cause crashes.
+            ),
             AppTarget(
                 version = "1.621.196",
                 isExperimental = true // Experimental – patch may cause crashes.
