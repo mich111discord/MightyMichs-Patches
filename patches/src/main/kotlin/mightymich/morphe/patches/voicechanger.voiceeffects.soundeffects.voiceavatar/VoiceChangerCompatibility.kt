@@ -9,7 +9,7 @@ object AudioEditorCompatibility {
         name = "Voice Changer", // App name as it appears in the Android launcher.
         packageName = "voicechanger.voiceeffects.soundeffects.voiceavatar",
         apkFileType = ApkFileType.APK, // Preferred or recommended file type.
-        appIconColor = 0xFF5722, // Orange color, typical for audio editing apps.
+        appIconColor = 0xFF5722,
         targets = listOf(
             // App version confirmed 100% working.
             AppTarget(
