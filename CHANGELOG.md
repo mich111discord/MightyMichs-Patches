@@ -1,3 +1,9 @@
+## [1.6.6](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.6.5...v1.6.6) (2026-09-30)
+
+### 🐛 Bug Fixes
+
+* trying to fix reelshort patch (with AI) ([13f38b4](https://github.com/mich111discord/MightyMichs-Patches/commit/13f38b4907c77a6f542c7153ead7c86000ef3820))
+
 ## [1.6.5](https://github.com/mich111discord/MightyMichs-Patches/compare/v1.6.4...v1.6.5) (2026-09-30)
 
 ### 🐛 Bug Fixes
