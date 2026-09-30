@@ -8,7 +8,7 @@ import app.morphe.patcher.patch.bytecodePatch
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features (Experimental)",
-    description = "Unlocks ReelShort premium by forcing getVip_status and isVip to return true. WARNING: May cause crashes.",
+    description = "Unlocks ReelShort premium by forcing getVip_status and isVipFreeAdvUnlock to return true. WARNING: May cause crashes.",
     default = true
 ) {
     compatibleWith(ReelShortCompatibility.REELSHORT)
@@ -19,10 +19,10 @@ val unlockPremiumPatch = bytecodePatch(
         returnType = "I"
     )
 
-    // 2. Fingerprint for isVip()Z – returns boolean.
-    val isVipFingerprint = Fingerprint(
-        name = "isVip",
-        returnType = "Z"
+    // 2. Fingerprint for isVipFreeAdvUnlock()I – returns int.
+    val isVipFreeAdvUnlockFingerprint = Fingerprint(
+        name = "isVipFreeAdvUnlock",
+        returnType = "I"
     )
 
     execute {
@@ -39,10 +39,10 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
-        // Patch isVip -> return 0x1 (true).
-        isVipFingerprint.let { fingerprint ->
+        // Patch isVipFreeAdvUnlock -> return 0x1 (true).
+        isVipFreeAdvUnlockFingerprint.let { fingerprint ->
             val method = fingerprint.method
-                ?: throw PatchException("Could not find isVip method.")
+                ?: throw PatchException("Could not find isVipFreeAdvUnlock method.")
             method.addInstructions(
                 0,
                 """
