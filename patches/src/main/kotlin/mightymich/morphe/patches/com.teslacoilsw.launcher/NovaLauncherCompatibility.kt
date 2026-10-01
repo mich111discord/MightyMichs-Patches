@@ -9,7 +9,10 @@ object NovaLauncherCompatibility {
         name = "Nova Launcher",
         packageName = "com.teslacoilsw.launcher",
         apkFileType = ApkFileType.APK,
-        appIconColor = 0xFF2196F3,
+        appIconColor = 0xFF2196F3.toInt(),
+        description = "Unlocks Nova Launcher Prime features.",
+        signatures = null,
+        isLegacy = false,
         targets = listOf(
             AppTarget(version = "8.8.9")
         )
