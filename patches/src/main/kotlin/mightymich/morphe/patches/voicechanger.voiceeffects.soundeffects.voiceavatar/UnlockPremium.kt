@@ -1,5 +1,6 @@
 package mightymich.morphe.patches.voicechanger.voiceeffects.soundeffects.voiceavatar
 
+import mightymich.morphe.patches.voicechanger.voiceeffects.soundeffects.voiceavatar.VoiceChangerCompatibility
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.PatchException
