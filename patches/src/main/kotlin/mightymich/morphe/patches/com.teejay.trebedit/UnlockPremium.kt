@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Unlocks TrebEdit premium by forcing the premium check to return true.",
+    description = "Unlocks TrebEdit premium by forcing the premium check to return true. ",
     default = true
 ) {
     compatibleWith(TrebEditCompatibility.TREBEDIT)
