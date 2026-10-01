@@ -10,9 +10,6 @@ object TelegramCompatibility {
         packageName = "org.telegram.messenger",
         apkFileType = ApkFileType.APK,
         appIconColor = 0xFF0088CC.toInt(),
-        description = "Unlocks Telegram Premium features.",
-        signatures = null,
-        isLegacy = false,
         targets = listOf(
             AppTarget(version = "12.10.1")
         )
