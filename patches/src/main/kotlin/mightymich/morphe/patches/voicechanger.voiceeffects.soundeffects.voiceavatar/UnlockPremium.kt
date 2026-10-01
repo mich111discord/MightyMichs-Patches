@@ -28,9 +28,7 @@ val unlockPremiumPatch = bytecodePatch(
 
     execute {
         purchaseCheckFingerprint.let { fingerprint ->
-
             val moveResultMatch = fingerprint.instructionMatches[2]
-
             val resultRegister = moveResultMatch
                 .getInstruction<OneRegisterInstruction>()
                 .registerA
