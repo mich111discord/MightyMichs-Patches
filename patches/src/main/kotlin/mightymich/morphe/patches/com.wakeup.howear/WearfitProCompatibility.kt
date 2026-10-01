@@ -10,9 +10,6 @@ object WearfitProCompatibility {
         packageName = "com.wakeup.howear",
         apkFileType = ApkFileType.APK,
         appIconColor = 0xFF2196F3.toInt(),
-        description = "Unlocks Wearfit Pro VIP features.",
-        signatures = null,
-        isLegacy = false,
         targets = listOf(
             AppTarget(version = "5.5.83")
         )
