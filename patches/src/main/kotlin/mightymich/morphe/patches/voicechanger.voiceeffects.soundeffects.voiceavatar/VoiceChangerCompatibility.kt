@@ -1,5 +1,6 @@
 package mightymich.morphe.patches.voicechanger.voiceeffects.soundeffects.voiceavatar
 
+
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
