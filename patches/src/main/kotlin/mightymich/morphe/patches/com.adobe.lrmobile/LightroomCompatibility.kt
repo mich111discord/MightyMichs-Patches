@@ -9,7 +9,10 @@ object LightroomCompatibility {
         name = "Adobe Lightroom",
         packageName = "com.adobe.lrmobile",
         apkFileType = ApkFileType.APK,
-        appIconColor = 0xFF00A8E1,
+        appIconColor = 0xFF00A8E1.toInt(),
+        description = "Unlocks Adobe Lightroom Premium features.",
+        signatures = null,
+        isLegacy = false,
         targets = listOf(
             AppTarget(version = "9.1.1")
         )
