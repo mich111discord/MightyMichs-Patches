@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium Features",
-    description = "Forces the purchase verification method to always return true, unlocking premium features in Voice Changer."
+    description = "Forces the purchase verification method to always return true, unlocking premium features in Voice Changer. "
 ) {
     compatibleWith(VoiceChangerCompatibility.VOICE_CHANGER)
 
