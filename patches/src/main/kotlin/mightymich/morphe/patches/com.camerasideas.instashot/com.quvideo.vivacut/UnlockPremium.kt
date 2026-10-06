@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium",
     description = "Unlocks VivaCut Pro by forcing IapService.F()Z to return true. WARNING: May cause crashes.",
-    default = false
+    default = true
 ) {
     compatibleWith(VivaCutCompatibility.VIVACUT)
 
