@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium ",
     description = "Unlocks PhotoApp Premium by forcing UserViewModel.isPremium to true. WARNING: May cause crashes.",
-    default = false
+    default = true
 ) {
     compatibleWith(PhotoAppCompatibility.PHOTOAPP)
 
