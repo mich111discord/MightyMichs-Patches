@@ -13,7 +13,7 @@ Patches for the best apps from Playstore🛍️
 
 <!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
 
-### How to use these patches
+### How to use these patches 🤔
 Click The image below.
 
 <a href="https://morphe.software/add-source?github=mich111discord/MightyMichs-Patches"><img src="https://mightymich.web1337.net/src/img/MightyMichs-Patches/Add-to-Morphe-badge-1.png" alt="Add to Morphe" height="300"></a>
@@ -21,7 +21,7 @@ Click The image below.
 
 Or
 
-[![Download MPP](https://img.shields.io/badge/Download-MPP-blueviolet?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mich111discord/Mightymichs-Patches/releases/latest)
+[![Download MPP](https://mightymich.web1337.net/Projekty/MightyMichs-Patches/download/latest/mpp)
 
 ## 🩹 Patches list
 
