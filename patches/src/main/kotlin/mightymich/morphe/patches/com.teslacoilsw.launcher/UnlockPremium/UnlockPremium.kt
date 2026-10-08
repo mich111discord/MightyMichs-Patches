@@ -1,34 +1,23 @@
-package mightymich.morphe.patches.com.teslacoilsw.launcher
+package mightymich.morphe.patches.com.teslacoilsw.launcher.UnlockPremium
 
-import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import hoodles.morphe.compatibility.Compat
 
 @Suppress("unused")
-val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Nova Launcher Prime",
-    description = "Unlocks Nova Launcher Prime by forcing isPrime() to return true.",
-    default = true
+val enablePrimePatch = bytecodePatch(
+    name = "Enable Prime",
+    description = "Enable Nova Launcher Prime."
 ) {
-    compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
-
-    val isPrimeFingerprint = Fingerprint(
-        name = "isPrime",
-        returnType = "Z"
-    )
+    compatibleWith(Compat.NOVA_LAUNCHER)
 
     execute {
-        isPrimeFingerprint.let { fingerprint ->
-            val method = fingerprint.method
-                ?: throw PatchException("Could not find isPrime method.")
-            method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
-            )
+        SetPrimeFromPreferencesFingerprint.apply {
+            val primeReg = instructionMatches.last().getInstruction<OneRegisterInstruction>().registerA
+            method.addInstructions(instructionMatches.last().index + 1, """
+                const/16 v$primeReg, 0x200
+            """.trimIndent())
         }
     }
 }
