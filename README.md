@@ -2,7 +2,7 @@
 
 ## ❓ About
 
-Patches for apps I like.
+Patches for best apps from Playstore🛍️
 
 <!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
 
