@@ -25,7 +25,7 @@ object SetPrimeFromPreferencesFingerprint : Fingerprint(
 @Suppress("unused")
 val enablePrimePatch = bytecodePatch(
     name = "Enable Prime (Experimental)",
-    description = "Enables Nova Launcher Prime WARNING: May cause crashes.",
+    description = "Enables Nova Launcher Prime WARNING: May cause crashes. ",
     default = true
 ) {
     compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
