@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlockEverythingPatch = bytecodePatch(
     name = "Unlock Everything (Experimental)",
     description = "Unlocks all items in POU and bypasses integrity check. WARNING: May cause crashes.",
-    default = true
+    default = false
 ) {
     compatibleWith(PouUnlockEverythingCompatibility.POU_UNLOCK_EVERYTHING)
 
