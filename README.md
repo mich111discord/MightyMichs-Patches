@@ -1,9 +1,9 @@
 # MightyMich's Patches 🩹
 [![build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com)
-[![Latest Release](https://img.shields.io/github/v/release/mich111discord/Mightymichs-Patches?style=for-the-badge&color=blueviolet&logo=github)](https://github.com/mich111discord/Mightymichs-Patches/releases/latest)
 [![License](https://img.shields.io/badge/License-GPL_v3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub All Releases](https://img.shields.io/github/downloads/mich111discord/MightyMichs-Patches/total)](https://github.com/mich111discordMightyMichs-Patches/releases)
 
+[![Latest Release](https://img.shields.io/github/v/release/mich111discord/Mightymichs-Patches?style=for-the-badge&color=blueviolet&logo=github)](https://github.com/mich111discord/Mightymichs-Patches/releases/latest)
 [![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
 
