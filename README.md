@@ -21,7 +21,7 @@ Click The image below.
 
 Or
 
-[![Download MPP](https://mightymich.web1337.net/Projekty/MightyMichs-Patches/download/latest/mpp)
+[Download MPP](https://mightymich.web1337.net/Projekty/MightyMichs-Patches/download/latest/mpp?from=github)
 
 ## 🩹 Patches list
 
