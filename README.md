@@ -1,5 +1,6 @@
 # MightyMich's Patches 🩹
 [![build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com)
+[![Latest Release](https://img.shields.io/github/v/release/mich111discord/Mightymichs-Patches?style=for-the-badge&color=blueviolet&logo=github)](https://github.com/mich111discord/Mightymichs-Patches/releases/latest)
 [![License](https://img.shields.io/badge/License-GPL_v3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub All Releases](https://img.shields.io/github/downloads/mich111discord/MightyMichs-Patches/total)](https://github.com/mich111discordMightyMichs-Patches/releases)
 
@@ -15,6 +16,9 @@ Patches for the best apps from Playstore🛍️
 ### How to use these patches
 Click The image below.
 <a href="https://morphe.software/add-source?github=mich111discord/MightyMichs-Patches"><img src="https://mightymich.web1337.net/src/img/MightyMichs-Patches/Add-to-Morphe-badge-1.png" alt="Add to Morphe" height="300"></a>
+Or
+[![Download MPP](https://img.shields.io/badge/Download-Latest-MPP-blueviolet?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mich111discord/Mightymichs-Patches/releases/latest)
+
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
