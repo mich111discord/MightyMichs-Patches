@@ -14,12 +14,8 @@ Patches for the best apps from Playstore🛍️
 
 ### How to use these patches
 Click The image below.
-<div align="center">
 
 [![Add to Morphe](https://mightymich.web1337.net/src/img/MightyMichs-Patches/Add-to-Morphe-badge-1.png)]([https://github.com/mich111discord/Mightymichs-Patches](https://morphe.software/add-source?github=mich111discord/MightyMichs-Patches))
-</div>
-
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=mich111discord/mightymichs-patches
 
 ## 🩹 Patches list
 
