@@ -8,14 +8,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium",
-    description = "Unlocks MagoVideo premium by forcing the premium check method h0 to return true.",
-    default = true
+    name = "Unlock Premium (Experimental)",
+    description = "Unlocks MagoVideo premium by forcing the premium check method h0 to return true. WARNING: May cause crashes.",
+    default = false
 ) {
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
-    // 1. Fingerprint: locate method h0 in class Lf2/l;.
-    //    It reads the static boolean field Z and returns it. 
     val premiumCheckFingerprint = Fingerprint(
         definingClass = "Lf2/l;",
         name = "h0",
@@ -30,8 +28,6 @@ val unlockPremiumPatch = bytecodePatch(
             val instructions = method.implementation?.instructions?.toList()
                 ?: throw PatchException("Method h0 has no implementation.")
 
-            // 2. Find the first sget-boolean instruction and replace it
-            //    with const/4 vX, 0x1 (true).
             var replaced = false
             for (i in instructions.indices) {
                 val instruction = instructions[i]
