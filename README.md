@@ -1,4 +1,6 @@
-# MightyMich's Patches
+# MightyMich's Patches 🩹
+[![build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com)
+[![License](https://img.shields.io/badge/License-GPL_v3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
 
 ## ❓ About
 
