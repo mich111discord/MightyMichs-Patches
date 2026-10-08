@@ -15,7 +15,7 @@ private val NETWORK_COMPONENTS = setOf(
 val removeInternetPermissionPatch = resourcePatch(
     name = "Remove Internet permission (Nova)",
     description = "Removes INTERNET permission from Nova Launcher and disables network-only entry points so Nova does not crash.",
-    default = false
+    default = true
 ) {
     compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
 
