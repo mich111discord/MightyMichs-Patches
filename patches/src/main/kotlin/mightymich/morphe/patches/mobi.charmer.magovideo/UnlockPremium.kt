@@ -15,7 +15,7 @@ val unlockPremiumPatch = bytecodePatch(
     compatibleWith(MagoVideoCompatibility.MAGO_VIDEO)
 
     // 1. Fingerprint: locate method h0 in class Lf2/l;.
-    //    It reads the static boolean field Z and returns it.
+    //    It reads the static boolean field Z and returns it. 
     val premiumCheckFingerprint = Fingerprint(
         definingClass = "Lf2/l;",
         name = "h0",
