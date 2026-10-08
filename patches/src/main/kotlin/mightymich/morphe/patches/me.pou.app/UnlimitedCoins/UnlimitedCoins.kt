@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlimitedCoinsPatch = bytecodePatch(
     name = "Unlimited Coins (Experimental)",
     description = "Gives unlimited coins in POU. WARNING: May cause crashes or reset progress.",
-    default = true
+    default = false
 ) {
     compatibleWith(PouUnlimitedCoinsCompatibility.POU_UNLIMITED_COINS)
 
