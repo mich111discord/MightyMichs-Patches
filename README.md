@@ -17,7 +17,7 @@ Click The image below.
 <div align="center">
 
 <a href="[https://morphe-patches.software/?deep_link=add_source&url=https://raw.githubusercontent.com/mich111discord/Mightymichs-Patches/main/patches.json](https://morphe.software/add-source?github=mich111discord/MightyMichs-Patches)">
-  <img src="https://mightymich.web1337.net/src/img/MightyMichs-Patches/Add-to-Morphe-badge-1.png" alt="Add to Morphe" width="100">
+  <img src="https://mightymich.web1337.net/src/img/MightyMichs-Patches/Add-to-Morphe-badge-1.png" alt="Add to Morphe" width="300">
 </a>
 
 </div>
