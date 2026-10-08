@@ -12,7 +12,7 @@ object PouCompatibility {
         appIconColor = 0x8BC34A,
         targets = listOf(
             AppTarget(
-                version = 1.4.135,
+                version = "1.4.135",
                 isExperimental = false
             )
         )
