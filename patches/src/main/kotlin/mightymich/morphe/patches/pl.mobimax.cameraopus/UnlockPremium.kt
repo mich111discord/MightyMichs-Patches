@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Premium (Experimental)",
     description = "Unlocks Camera Opus Companion premium by forcing the license check to return true. WARNING: May cause crashes.",
-    default = false
+    default = true
 ) {
     compatibleWith(CameraOpusCompatibility.CAMERA_OPUS)
 
