@@ -9,12 +9,10 @@ import app.morphe.patcher.patch.bytecodePatch
 val wearEngineFixPatch = bytecodePatch(
     name = "Wear Engine Scope Fix (Experimental)",
     description = "Fixes Wear Engine scope authorization errors by forcing the error code check to succeed. WARNING: May cause crashes.",
-    default = true
+    default = false
 ) {
     compatibleWith(CameraOpusCompatibility.CAMERA_OPUS)
 
-    // Fingerprint: locate the checkSuccess method in WearEngineErrorCode class.
-    // This method validates the response code from Wear Engine (Huawei watch API).
     val errorCodeFingerprint = Fingerprint(
         definingClass = "Lcom/huawei/wearengine/common/WearEngineErrorCode;",
         name = "checkSuccess",
