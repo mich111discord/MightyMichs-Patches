@@ -9,7 +9,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val wearEngineFixPatch = bytecodePatch(
     name = "Wear Engine Scope Fix (Experimental)",
     description = "Fixes Wear Engine scope authorization errors by forcing the error code check to succeed. WARNING: May cause crashes.",
-    default = false
+    default = true
 ) {
     compatibleWith(CameraOpusCompatibility.CAMERA_OPUS)
 
