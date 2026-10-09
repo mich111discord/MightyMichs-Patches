@@ -1,41 +1,36 @@
 package mightymich.morphe.patches.pl.mobimax.photex
 
-import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.patch.PatchException
-import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.framework.patcher.annotation.Patch
+import app.morphe.framework.patcher.BytecodePatch
+import app.morphe.framework.patcher.MethodInstructionMatcher
+import app.morphe.framework.patcher.BytecodeContext
+import org.jf.dexlib2.Opcode
+import org.jf.dexlib2.builder.instruction.BuilderInstruction11n
+import org.jf.dexlib2.builder.instruction.BuilderInstruction11x
 
-@Suppress("unused")
-val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Premium Features",
-    description = "Unlocks Photex Companion premium by forcing the license check to return true.",
-    default = true
-) {
-    compatibleWith(PhotexCompatibility.PHOTEX)
+@Patch(
+    name = "Unlock Premium",
+    description = "Bypasses Google Play Billing verification by forcing BillingResult.getResponseCode() to return 0 (OK)."
+)
+object UnlockPremium : BytecodePatch(
+    setOf(BillingResultPatch)
+)
 
-    // Fingerprint: locate the method c()Z in the App class.
-    // This method is called to determine the license status (PREMIUM/FREE).
-    val licenseCheckFingerprint = Fingerprint(
-        definingClass = "Lpl/mobimax/photex/App;",
-        name = "c",
-        returnType = "Z"
-    )
-
-    execute {
-        licenseCheckFingerprint.let { fingerprint ->
-            val method = fingerprint.method
-                ?: throw PatchException("Could not find c()Z method in App class.")
-
-            // Insert instructions at the very beginning:
-            //   const/4 v0, 0x1  -> load 1 (true) into register v0
-            //   return v0        -> return true immediately
-            method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """
+object BillingResultPatch : BytecodeContext() {
+    init {
+        patch(
+            MethodInstructionMatcher(
+                className = "Lcom/android/billingclient/api/BillingResult;",
+                methodName = "getResponseCode",
+                methodDescriptor = "()I"
             )
+        ) {
+            val instructions = mutableMethod.implementation?.instructions ?: return@patch
+            instructions.clear()
+            // const/4 v0, 0x0
+            instructions.add(BuilderInstruction11n(Opcode.CONST_4, 0, 0))
+            // return v0
+            instructions.add(BuilderInstruction11x(Opcode.RETURN, 0))
         }
     }
 }
