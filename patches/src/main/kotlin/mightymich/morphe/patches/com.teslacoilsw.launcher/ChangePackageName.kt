@@ -14,10 +14,6 @@ private const val NOVA_PKG = "com.teslacoilsw.launcher"
 
 private var resolvedPackage: String = NOVA_PKG
 
-private val IDENTITY_SUFFIXES = listOf(
-    ".permission.", ".action.", ".settings", ".preferences.", ".extra."
-)
-
 private val CLASS_ATTRS = listOf(
     "android:name",
     "android:targetActivity",
@@ -57,6 +53,7 @@ private val changePackageNameResourcesPatch = resourcePatch {
         document("AndroidManifest.xml").use { dom ->
             val root = dom.documentElement
 
+            // a) Nazwy klas – uczyń w pełni kwalifikowanymi
             for (tag in COMPONENT_TAGS) {
                 val nodes = root.getElementsByTagName(tag)
                 for (i in 0 until nodes.length) {
@@ -72,6 +69,7 @@ private val changePackageNameResourcesPatch = resourcePatch {
                 }
             }
 
+            // b) Uprawnienia, akcje, kategorie
             for (tag in listOf(
                 "uses-permission", "uses-permission-sdk-23", "permission",
                 "permission-group", "action", "category"
@@ -90,6 +88,7 @@ private val changePackageNameResourcesPatch = resourcePatch {
                 }
             }
 
+            // c) Authorities, uprawnienia providerów, affinity
             fun walk(e: Element) {
                 for (attr in IDENTITY_ATTRS) {
                     val v = e.getAttribute(attr)
@@ -104,9 +103,11 @@ private val changePackageNameResourcesPatch = resourcePatch {
             }
             walk(root)
 
+            // d) Sam pakiet
             root.setAttribute("package", target)
         }
 
+        // e) Zasoby XML (targetPackage)
         runCatching {
             get("res/xml").walkTopDown()
                 .filter { it.isFile && it.extension == "xml" }
@@ -127,8 +128,8 @@ private val changePackageNameResourcesPatch = resourcePatch {
 
 @Suppress("unused")
 val changePackageNamePatch = bytecodePatch(
-    name = "Change Package Name",
-    description = "Safely changes the package name of Nova Launcher and rewrites Nova-specific references to prevent conflicts and crashes. WARNING: May cause crashes.",
+    name = "Change Package Name (Experimental)",
+    description = "Safely changes the package name of Nova Launcher, updating both AndroidManifest.xml and DEX string references. WARNING: May cause crashes.",
     default = true
 ) {
     compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
@@ -136,35 +137,34 @@ val changePackageNamePatch = bytecodePatch(
 
     execute {
         val target = resolvedPackage
+        val oldPackage = NOVA_PKG
 
-        fun rewrite(s: String): String? = when {
-            s == NOVA_PKG -> target
-            IDENTITY_SUFFIXES.any { s.startsWith(NOVA_PKG + it) } ->
-                target + s.removePrefix(NOVA_PKG)
-            else -> null
-        }
-
-        // Używamy 'classes' (właściwe dla Twojej wersji API)
-        classes.forEach { classDef ->
-            val candidates = classDef.methods.filter { m ->
-                m.implementation?.instructions?.any { ins ->
-                    val s = ((ins as? ReferenceInstruction)?.reference as? StringReference)?.string
-                    s != null && s.startsWith(NOVA_PKG)
-                } == true
-            }
-            if (candidates.isEmpty()) return@forEach
-
+        // Iteracja po wszystkich klasach w DEX
+        classDefs.forEach { classDef ->
             val mutableClass = mutableClassDefBy(classDef)
+
             mutableClass.methods.forEach { method ->
-                val impl = method.implementation ?: return@forEach
-                impl.instructions.toList().forEachIndexed { index, ins ->
-                    if (ins.opcode != Opcode.CONST_STRING &&
-                        ins.opcode != Opcode.CONST_STRING_JUMBO
+                val implementation = method.implementation ?: return@forEach
+                val instructions = implementation.instructions.toList()
+
+                instructions.forEachIndexed { index, instruction ->
+                    if (instruction.opcode != Opcode.CONST_STRING &&
+                        instruction.opcode != Opcode.CONST_STRING_JUMBO
                     ) return@forEachIndexed
-                    val str = (ins as ReferenceInstruction).reference as StringReference
-                    val replacement = rewrite(str.string) ?: return@forEachIndexed
-                    val reg = (ins as OneRegisterInstruction).registerA
-                    method.replaceInstruction(index, "const-string v$reg, \"$replacement\"")
+
+                    val ref = (instruction as ReferenceInstruction).reference as StringReference
+                    val originalString = ref.string
+
+                    if (originalString.contains(oldPackage)) {
+                        val updatedString = originalString.replace(oldPackage, target)
+                        if (updatedString != originalString) {
+                            val register = (instruction as OneRegisterInstruction).registerA
+                            method.replaceInstruction(
+                                index,
+                                "const-string v$register, \"$updatedString\""
+                            )
+                        }
+                    }
                 }
             }
         }
