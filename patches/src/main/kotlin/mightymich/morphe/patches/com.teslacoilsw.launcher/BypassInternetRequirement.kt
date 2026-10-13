@@ -32,7 +32,7 @@ private val removeInternetPermissionResourcePatch = resourcePatch {
 val bypassInternetRequirementPatch = bytecodePatch(
     name = "Safe Remove Internet Permission (Experimental)",
     description = "Safely removes the INTERNET permission from Nova Launcher and stubs network checks to prevent search crashes. WARNING: May cause crashes.",
-    default = ftrue
+    default = true
 ) {
     compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
     dependsOn(removeInternetPermissionResourcePatch)
