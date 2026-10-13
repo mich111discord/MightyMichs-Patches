@@ -1,4 +1,4 @@
-package mightymich.morphe.patches.com.teslacoilsw.launcher.ChangePackageName
+package mightymich.morphe.patches.com.teslacoilsw.launcher
 
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -8,7 +8,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import mightymich.morphe.patches.com.teslacoilsw.launcher.NovaLauncherCompatibility
 import org.w3c.dom.Element
 
 private const val NOVA_PKG = "com.teslacoilsw.launcher"
@@ -16,7 +15,7 @@ private const val NOVA_PKG = "com.teslacoilsw.launcher"
 private var resolvedPackage: String = NOVA_PKG
 
 private val IDENTITY_SUFFIXES = listOf(
-    ".permission.", ".action.", ".settings", ".preferences", ".extra."
+    ".permission.", ".action.", ".settings", ".preferences.", ".extra."
 )
 
 private val CLASS_ATTRS = listOf(
@@ -128,9 +127,9 @@ private val changePackageNameResourcesPatch = resourcePatch {
 
 @Suppress("unused")
 val changePackageNamePatch = bytecodePatch(
-    name = "Change Package Name (Experimental)",
+    name = "Change Package Name",
     description = "Safely changes the package name of Nova Launcher and rewrites Nova-specific references to prevent conflicts and crashes. WARNING: May cause crashes.",
-    default = false
+    default = true
 ) {
     compatibleWith(NovaLauncherCompatibility.NOVA_LAUNCHER)
     dependsOn(changePackageNameResourcesPatch)
@@ -145,7 +144,8 @@ val changePackageNamePatch = bytecodePatch(
             else -> null
         }
 
-        classDefs.forEach { classDef ->
+        // Używamy 'classes' (właściwe dla Twojej wersji API)
+        classes.forEach { classDef ->
             val candidates = classDef.methods.filter { m ->
                 m.implementation?.instructions?.any { ins ->
                     val s = ((ins as? ReferenceInstruction)?.reference as? StringReference)?.string
