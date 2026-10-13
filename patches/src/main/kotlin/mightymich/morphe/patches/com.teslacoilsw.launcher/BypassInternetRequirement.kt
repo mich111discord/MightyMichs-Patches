@@ -2,6 +2,7 @@ package mightymich.morphe.patches.com.teslacoilsw.launcher.BypassInternetRequire
 
 import app.morphe.patcher.patch.resourcePatch
 import org.w3c.dom.Element
+import mightymich.morphe.patches.com.teslacoilsw.launcher.NovaLauncherCompatibility
 
 private val NETWORK_COMPONENTS = setOf(
     "com.google.firebase.messaging.FirebaseMessagingService",
