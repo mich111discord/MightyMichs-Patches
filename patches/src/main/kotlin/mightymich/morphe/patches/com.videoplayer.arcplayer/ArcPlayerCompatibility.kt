@@ -4,6 +4,7 @@ import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.Compatibility
 
+
 object ArcPlayerCompatibility {
     val ARC_PLAYER = Compatibility(
         name = "Arc Player",
