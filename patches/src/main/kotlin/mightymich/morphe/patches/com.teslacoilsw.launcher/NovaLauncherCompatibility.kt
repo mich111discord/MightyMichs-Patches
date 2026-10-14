@@ -16,3 +16,5 @@ object NovaLauncherCompatibility {
             AppTarget(version = "8.0.8"),
             AppTarget(version = "8.8.8")
         )
+    )
+}
