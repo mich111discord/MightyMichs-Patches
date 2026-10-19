@@ -99,7 +99,7 @@ val unlockPremiumPatch = bytecodePatch(
             if (!classHasSku) return@Fingerprint false
             // Prefer public short VIP getters (a / m) or any short ()Z
             method.name == "a" || method.name == "m" || (
-                (method.implementation?.instructions?.size ?: 99) <= 8 &&
+                (method.implementation?.instructions?.count() ?: 99) <= 8 &&
                     method.accessFlags and 0x1 != 0 // public
                 )
         }
