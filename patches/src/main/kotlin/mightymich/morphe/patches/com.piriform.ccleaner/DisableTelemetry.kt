@@ -9,11 +9,11 @@ import app.morphe.patcher.string
 /**
  * Disables CCleaner telemetry / analytics tracking.
  *
- * Nops out TrackingManager.trackEvent so no events are sent to
- * Avast Burger / Firebase / DomainTracker backends.
+ * Nops out TrackingManager track-event entry points so nothing is sent to
+ * Avast Burger / Firebase backends.
  *
- * Fingerprint uses the stable class name + unique log string
- * that appears inside the method (survives obfuscation of the method name).
+ * Note: R8 keeps log literals; the real string is "TrackingManager.trackEvent("
+ * (with '('), not the bare method name.
  */
 @Suppress("unused")
 val disableTelemetryPatch = bytecodePatch(
@@ -23,26 +23,50 @@ val disableTelemetryPatch = bytecodePatch(
 ) {
     compatibleWith(CCleanerCompatibility.CCLEANER)
 
+    // Primary: method that logs "TrackingManager.trackEvent() - Mapping event "
     val trackEventFingerprint = Fingerprint(
         definingClass = "Lcom/avast/android/cleaner/tracking/TrackingManager;",
         returnType = "V",
         filters = listOf(
-            string("TrackingManager.trackEvent")
+            string("TrackingManager.trackEvent() - Mapping event ")
+        )
+    )
+
+    // Fallback: shorter log tag with opening paren (present in 26.08.0)
+    val trackEventAltFingerprint = Fingerprint(
+        definingClass = "Lcom/avast/android/cleaner/tracking/TrackingManager;",
+        returnType = "V",
+        filters = listOf(
+            string("TrackingManager.trackEvent(")
+        )
+    )
+
+    // Strategy handler that can skip events
+    val strategyFingerprint = Fingerprint(
+        definingClass = "Lcom/avast/android/cleaner/tracking/TrackingManager;",
+        returnType = "V",
+        filters = listOf(
+            string("TrackingManager.handleTrackingStrategy() - Skipping event ")
         )
     )
 
     execute {
-        val method = trackEventFingerprint.method
-            ?: throw PatchException(
-                "Could not find TrackingManager.trackEvent (looked for log string)."
-            )
+        val ret = "return-void"
+        var ok = 0
 
-        // Immediately return – no tracking is performed
-        method.addInstructions(
-            0,
-            """
-                return-void
-            """
-        )
+        for (fp in listOf(trackEventFingerprint, trackEventAltFingerprint, strategyFingerprint)) {
+            try {
+                fp.method.addInstructions(0, ret)
+                ok++
+            } catch (_: Exception) {
+            }
+        }
+
+        if (ok == 0) {
+            throw PatchException(
+                "Could not find TrackingManager track/strategy methods. " +
+                    "Expected log strings TrackingManager.trackEvent(…)."
+            )
+        }
     }
 }
