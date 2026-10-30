@@ -1,4 +1,3 @@
-
 package mightymich.morphe.patches.universal
 
 import app.morphe.patcher.patch.Option
@@ -12,13 +11,6 @@ import java.util.logging.Logger
 
 lateinit var packageNameOption: Option<String>
 
-/**
- * Set the package name to use.
- * If this is called multiple times, the first call will set the package name.
- *
- * @param fallbackPackageName The package name to use if the user has not already specified a package name.
- * @return The package name that was set.
- */
 fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
     val packageName = packageNameOption.value!!
     return if (packageName == packageNameOption.default) {
@@ -65,14 +57,8 @@ val changePackageNamePatch = resourcePatch(
     )
 
     finalize {
-        /**
-         * Apps confirmed not to work correctly with this patch.
-         * Not exhaustive — only known bad cases from Morphe-specific work.
-         */
         val incompatibleAppPackages = setOf(
-            // Cannot log in, settings menu is broken.
             "com.reddit.frontpage",
-            // Patches and installs but crashes on launch.
             "com.duolingo",
             "com.twitter.android",
             "tv.twitch.android.app",
@@ -106,8 +92,6 @@ val changePackageNamePatch = resourcePatch(
                     .map { it as Element }
                     .filter {
                         val name = it.getAttribute("android:name")
-                        // Official Morphe: only the receiver permission.
-                        // Extended: any custom permission prefixed with old package.
                         name == "$packageName.$receiverNotExported" ||
                             name.startsWith("$packageName.")
                     }
@@ -119,7 +103,6 @@ val changePackageNamePatch = resourcePatch(
                         )
                     }
 
-                // Component-level android:permission attributes that use package prefix
                 val componentTags = listOf(
                     "activity", "activity-alias", "service", "receiver", "provider"
                 )
@@ -151,7 +134,6 @@ val changePackageNamePatch = resourcePatch(
                     val provider = node as Element
                     val authorities = provider.getAttribute("android:authorities")
                     if (authorities.isEmpty()) continue
-                    // Support single authority or semicolon-separated list
                     val updated = authorities.split(';').joinToString(";") { part ->
                         val a = part.trim()
                         when {
