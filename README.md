@@ -12,7 +12,7 @@
 **AI-Generated Patches Notice:** 
 Most patches in this repository are autonomously generated or assisted by AI models (such as Grok). 
 
-* **No Warranty:** These scripts and patches are provided "as is", without warranty of any kind. They may break your app, cause bootloops, or summon digital gremlins. Use them at your own risk.
+* **No Warranty:** These scripts and patches are provided "as is", without warranty of any kind. They may break your app, or summon digital gremlins. Use them at your own risk.
 * **Found a Bug?** If a patch fails or behaves unexpectedly, please open a detailed [Issue](https://github.com/mich111discord/MightyMichs-Patches/issues) with reproduction steps and logs so we can fix it. PRs are always welcome! 🚀
 
 ## ❓ About
