@@ -15,7 +15,7 @@ Most patches in this repository are autonomously generated or assisted by AI mod
 * **No Warranty:** These scripts and patches are provided "as is", without warranty of any kind. They may break your app, or summon digital gremlins. Use them at your own risk.
 * **Found a Bug?** If a patch fails or behaves unexpectedly, please open a detailed [Issue](https://github.com/mich111discord/MightyMichs-Patches/issues) with reproduction steps and logs so we can fix it. PRs are always welcome! 🚀
 
-## ⚠️ Warning for (whatsapp patches)[https://github.com/mich111discord/MightyMichs-Patches/blob/main/patches/src/main/kotlin/mightymich/morphe/patches/com.whatsapp/README_GUI.md]
+## ⚠️ Warning for [whatsapp patches](https://github.com/mich111discord/MightyMichs-Patches/blob/main/patches/src/main/kotlin/mightymich/morphe/patches/com.whatsapp/README_GUI.md)
 
 ## ❓ About
 
