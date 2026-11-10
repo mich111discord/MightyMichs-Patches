@@ -7,6 +7,14 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
 
+## ⚠️ Disclaimer
+
+**AI-Generated Patches Notice:** 
+Most patches in this repository are autonomously generated or assisted by AI models (such as Grok). 
+
+* **No Warranty:** These scripts and patches are provided "as is", without warranty of any kind. They may break your app, or summon digital gremlins. Use them at your own risk.
+* **Found a Bug?** If a patch fails or behaves unexpectedly, please open a detailed [Issue](https://github.com/mich111discord/MightyMichs-Patches/issues) with reproduction steps and logs so we can fix it. PRs are always welcome! 🚀
+
 ## ❓ About
 
 Patches for the best apps from Playstore🛍️
@@ -26,7 +34,7 @@ Or
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.14.0](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.14.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;73 patches total
+> **[v1.14.1](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.14.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;73 patches total
 <details open>
 <summary>📦 WhatsApp&nbsp;&nbsp;•&nbsp;&nbsp;8 patches</summary>
 <br>
@@ -265,7 +273,7 @@ Or
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Unlock Premium](#unlock-premium) | Forces Call Filter local subscription flag isSubscribed to true (SharedPreferences reads + persist on app start). |  |
+| [Unlock Premium](#unlock-premium) | Forces Call Filter isSubscribed SharedPreferences reads to true (no Application.onCreate rewrite — avoids VerifyError). |  |
 
 </details>
 
@@ -477,12 +485,12 @@ Or
 
 **🎯 Supported versions:**
 
-| 4.2.20 | 4.2.00 |
-| :---: | :---: |
+| 4.2.60 | 4.2.20 | 🧪&nbsp;4.2.00 |
+| :---: | :---: | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Unlock Premium Features](#unlock-premium-features) | Forces local VIP membership (status, type, expire) and unlocks ad/paywall episode flags. Server-side purchases are not forged. |  |
+| [Unlock Premium Features](#unlock-premium-features) | Forces local VIP membership (status, type, expire far in the future) and unlocks ad/paywall episode flags. Does not forge server purchases. |  |
 
 </details>
 
