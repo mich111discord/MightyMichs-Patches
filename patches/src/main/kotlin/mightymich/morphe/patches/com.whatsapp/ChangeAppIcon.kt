@@ -104,8 +104,7 @@ val changeAppIconPatch = resourcePatch(
         if (customFile != null) {
             val bytes = customFile.readBytes()
             for (dir in densityDirs) {
-                val out = get("res/$dir/$resName.png")
-                out.writeBytes(bytes)
+                get("res/$dir/$resName.png").writeBytes(bytes)
             }
             for (dir in densityDirs) {
                 for (stock in listOf("ic_launcher", "ic_launcher_foreground", "ic_launcher_whatsapp")) {
@@ -121,29 +120,20 @@ val changeAppIconPatch = resourcePatch(
             log.info("Copied custom icon from ${customFile.absolutePath} (${bytes.size} bytes)")
         }
 
-        val adaptive = get("res/mipmap-anydpi-v26/$resName.xml")
-        adaptive.writeText(
-            """
+        val adaptiveXml = """
             <?xml version="1.0" encoding="utf-8"?>
             <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
                 <background android:drawable="@color/mightymich_icon_bg"/>
                 <foreground android:drawable="@mipmap/$resName"/>
             </adaptive-icon>
-            """.trimIndent() + "\n",
-        )
+        """.trimIndent() + "\n"
+
+        get("res/mipmap-anydpi-v26/$resName.xml").writeText(adaptiveXml)
 
         for (name in listOf("ic_launcher", "ic_launcher_round")) {
             val anydpi = get("res/mipmap-anydpi-v26/$name.xml")
-            if (anydpi.exists() || style == "custom") {
-                anydpi.writeText(
-                    """
-                    <?xml version="1.0" encoding="utf-8"?>
-                    <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-                        <background android:drawable="@color/mightymich_icon_bg"/>
-                        <foreground android:drawable="@mipmap/$resName"/>
-                    </adaptive-icon>
-                    """.trimIndent() + "\n",
-                )
+            if (anydpi.exists()) {
+                anydpi.writeText(adaptiveXml)
             }
         }
 
@@ -175,7 +165,7 @@ val changeAppIconPatch = resourcePatch(
                     appendLine("Custom file: ${customFile.absolutePath}")
                     appendLine("Bytes: ${customFile.length()}")
                 } else {
-                    appendLine("No custom file — using preset. Set Style to Custom file and pick a PNG.")
+                    appendLine("Preset only — pack icon PNGs or pick Custom file.")
                 }
                 appendLine("If the icon did not update, reboot the launcher or reinstall the app.")
             },
