@@ -15,6 +15,8 @@ Most patches in this repository are autonomously generated or assisted by AI mod
 * **No Warranty:** These scripts and patches are provided "as is", without warranty of any kind. They may break your app, or summon digital gremlins. Use them at your own risk.
 * **Found a Bug?** If a patch fails or behaves unexpectedly, please open a detailed [Issue](https://github.com/mich111discord/MightyMichs-Patches/issues) with reproduction steps and logs so we can fix it. PRs are always welcome! 🚀
 
+## ⚠️ Warning for [whatsapp patches](https://github.com/mich111discord/MightyMichs-Patches/blob/main/patches/src/main/kotlin/mightymich/morphe/patches/com.whatsapp/README_GUI.md)
+
 ## ❓ About
 
 Patches for the best apps from Playstore🛍️
@@ -34,9 +36,9 @@ Or
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.14.1](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.14.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;73 patches total
+> **[v1.15.0](https://github.com/mich111discord/MightyMichs-Patches/releases/tag/v1.15.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;76 patches total
 <details open>
-<summary>📦 WhatsApp&nbsp;&nbsp;•&nbsp;&nbsp;8 patches</summary>
+<summary>📦 WhatsApp&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -46,11 +48,12 @@ Or
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [App icon](#app-icon) | Choose a classic or premium-style launcher icon. | • Style |
+| [App icon](#app-icon) | Choose a classic / premium launcher icon, or pick a PNG from your phone. | • Style<br>• Custom icon PNG |
 | [Keep deleted messages](#keep-deleted-messages) | Show messages that were deleted for everyone. May need a fingerprint update after WhatsApp upgrades. | • Highlight deleted messages |
 | [Mods settings entry](#mods-settings-entry) | Reserves a MightyMich row in Settings. Full dialog wiring needs the settings-list fingerprint for this WhatsApp build. |  |
 | [Mods settings resources](#mods-settings-resources) | Adds English strings for the MightyMich section in WhatsApp Settings. |  |
 | [Read receipts](#read-receipts) | If enabled, you won't send read receipts (blue ticks). | • Always off |
+| [Remove Meta AI](#remove-meta-ai) | Hides Meta AI on the chats home screen (FAB / pill), related hub entry points, and common feature gates. Does not delete existing Meta AI chats. | • Aggressive hide |
 | [Typing indicator](#typing-indicator) | If enabled, others won't see when you are typing. |  |
 | [Usage data](#usage-data) | Limit diagnostic and analytics data WhatsApp sends. |  |
 | [View once media](#view-once-media) | Allow reopening and saving view once photos and videos. |  |
@@ -70,6 +73,22 @@ Or
 |----------|----------------|-----------|
 | [Bypass Login Requirements](#bypass-login-requirements) | Skips SofaScore login requirement by forcing isLoggedIn to true. |  |
 | [Unlock Premium & Remove Ads](#unlock-premium-remove-ads) | Unlocks SofaScore premium and disables ads. |  |
+
+</details>
+
+<details open>
+<summary>📦 Screen Translate&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 7.5.00112 | v7.5.00112 | 7.3.10123 | v7.3.10123 | 7.3.00961 | v7.3.00961 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Bypass Play install gate](#bypass-play-install-gate) | Skips PairIP / Play installer checks that block sideloaded Screen Translate builds with the "Get this app from Play" dialog. |  |
+| [Unlock Premium Features](#unlock-premium-features) | Unlocks Screen Translate Premium features and disables premium-only gates. |  |
 
 </details>
 
@@ -495,21 +514,6 @@ Or
 </details>
 
 <details open>
-<summary>📦 Screen Translate&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 7.5.00112 | v7.5.00112 | 7.3.10123 | v7.3.10123 | 7.3.00961 | v7.3.00961 |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Unlock Premium Features](#unlock-premium-features) | Unlocks Screen Translate Premium features and disables premium-only gates. |  |
-
-</details>
-
-<details open>
 <summary>📦 TrebEdit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
@@ -720,7 +724,7 @@ Or
 </details>
 
 <details open>
-<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
+<summary>🌐 Universal&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
@@ -729,6 +733,7 @@ Or
 | [Change app name](#change-app-name) | Sets a custom application / launcher display name (strings.xml + manifest labels). | • App name |
 | [Change package name](#change-package-name) | Appends ".mightymich" to the package name by default. Changing the package name of the app can lead to unexpected issues. | • Package name<br>• Update permissions<br>• Update providers |
 | [Change version code](#change-version-code) | Overrides android:versionCode (and optional versionName). | • Version code<br>• Version name |
+| [Disable PairIP license check](#disable-pairip-license-check) | Bypasses PairIP LicenseClient installer/license checks that block sideloaded or re-signed apps with a Play Store paywall dialog. |  |
 | [Disable ads (basic)](#disable-ads-basic) | Best-effort no-op of common ad SDK load/show methods. |  |
 | [Disable all telemetry](#disable-all-telemetry) | Best-effort disable of Firebase/AppsFlyer/Mixpanel/Segment style track methods. |  |
 | [Disable screenshot restriction](#disable-screenshot-restriction) | Best-effort bypass of FLAG_SECURE screenshot blocks. |  |
